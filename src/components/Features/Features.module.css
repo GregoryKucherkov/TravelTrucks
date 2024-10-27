@@ -1,0 +1,29 @@
+.featuresSection {
+  max-width: 631px;
+  padding: 44px 80px;
+  background-color: var(--inputs);
+  border-radius: 10px;
+  margin: 44px 40px 0 0;
+}
+
+.h3Details {
+  margin-top: 100px;
+  margin-bottom: 24px;
+}
+
+.detailsUl {
+  margin-top: 24px;
+}
+
+.detailsLi {
+  font-weight: 500;
+  color: var(--main);
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.type {
+  text-transform: capitalize;
+}

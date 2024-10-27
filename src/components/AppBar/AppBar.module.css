@@ -1,0 +1,34 @@
+.header {
+  height: 72px;
+  margin: 0;
+
+  background-color: var(--inputs);
+  border-bottom: 1px solid var(--badges);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 136px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.headerMenu {
+  display: flex;
+  gap: 32px;
+  margin-left: 450px;
+  font-weight: 500;
+}
+
+.link {
+  text-decoration: none;
+
+  color: #2a363b;
+}
+
+.link.active {
+  color: var(--hover);
+}

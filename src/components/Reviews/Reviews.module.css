@@ -1,0 +1,41 @@
+.reviewsSection {
+  max-width: 631px;
+  /* padding: 44px 80px; */
+
+  margin: 56px 40px 80px 0;
+}
+
+.avatar {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 133%;
+  color: var(--btn);
+  border-radius: 50%;
+  background-color: var(--grayLight);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleWraper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.reviewLi {
+  margin-bottom: 44px;
+}
+
+.titleWraper {
+  display: flex;
+}
+
+.ratingWraper {
+  display: flex;
+  flex-direction: column;
+}

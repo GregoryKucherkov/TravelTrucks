@@ -1,0 +1,42 @@
+.formContainer {
+  max-width: 641px;
+  /* height: 588px; */
+
+  border: 1px solid var(--grayLight);
+  border-radius: 10px;
+  padding: 44px;
+  margin-top: 44px;
+}
+
+.text {
+  margin-bottom: 24px;
+  color: var(--gray);
+}
+
+.form {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field {
+  width: 527px;
+  height: 60px;
+  padding: 18px 337px 18px 18px;
+  border-radius: 12px;
+  border-color: transparent;
+  background: var(--inputs);
+}
+.field.texarea {
+  margin-bottom: 10px;
+}
+
+.dateForm {
+  width: 527px;
+  height: 60px;
+  padding: 18px 337px 18px 18px;
+  border-radius: 12px;
+  border-color: transparent;
+  background: var(--inputs);
+}

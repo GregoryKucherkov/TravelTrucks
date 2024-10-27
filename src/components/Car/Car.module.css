@@ -1,0 +1,56 @@
+.thumbCont {
+  width: 292px;
+  height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.img {
+  /* max-width: 292px;
+  height: 320px; */
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.h2Wraper {
+  display: flex;
+  color: var(--main);
+  align-items: flex-start;
+}
+
+.h2Name {
+  margin-right: auto; /* Pushes price and button to the right */
+}
+
+.svgMap {
+  margin-left: 16px;
+}
+
+.description {
+  max-width: 525px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.likeBtn {
+  background-color: transparent;
+  padding: 0 12px;
+}
+
+.likeBtn:hover {
+  fill: var(--btn);
+}
+
+.svgBtn:active {
+  fill: var(--btn);
+}

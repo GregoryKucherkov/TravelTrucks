@@ -1,0 +1,57 @@
+/* .dropdown {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  z-index: 10;
+  overflow-y: auto;
+} */
+
+.location {
+  color: var(--text);
+  font-weight: 500;
+  padding-bottom: 8px;
+}
+
+.form {
+  padding-bottom: 40px;
+  position: relative;
+  display: flex;
+
+  align-items: center;
+}
+
+.svg {
+  position: absolute;
+  left: 20px;
+}
+
+.input {
+  width: 360px;
+  height: 56px;
+  background-color: var(--inputs);
+  padding: 18px 20px;
+  color: var(--main);
+  border-radius: 12px;
+  border: transparent;
+}
+
+.input::placeholder {
+  color: var(--main);
+  right: 20px;
+  position: absolute;
+  left: 48px;
+}
+
+.btn {
+  width: 10px;
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: transparent;
+}

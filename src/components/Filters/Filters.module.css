@@ -1,0 +1,57 @@
+svg {
+  width: 32px;
+  height: 32px;
+  /* fill: var(--main); */
+}
+
+.options {
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 0;
+  gap: 8px;
+}
+
+.filters {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.filterTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 120%;
+  padding-bottom: 24px;
+  color: var(--main);
+}
+
+.filterBtn {
+  max-width: 112px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--grayLight);
+  cursor: pointer;
+  padding: 16px 40px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.filterBtn.checked {
+  border: 1px solid var(--btn);
+}
+
+.type {
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 0;
+}

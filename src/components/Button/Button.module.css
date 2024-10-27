@@ -1,0 +1,24 @@
+.link {
+  width: 173px;
+  padding: 16px;
+  border-radius: 200px;
+  background-color: var(--btn);
+  color: var(--white);
+
+  font-weight: 500;
+}
+
+.link.btn {
+  width: 166px;
+}
+
+.link.viewMore {
+  width: 145px;
+  height: 56px;
+  background-color: var(--white);
+  color: var(--main);
+  border: 1px solid var(--grayLight);
+
+  display: block;
+  margin: 8px auto;
+}

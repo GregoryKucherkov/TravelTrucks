@@ -1,0 +1,9 @@
+.columns {
+  display: flex;
+  gap: 64px;
+  margin-top: 24px;
+}
+
+.filterSection {
+  max-width: 360px;
+}
