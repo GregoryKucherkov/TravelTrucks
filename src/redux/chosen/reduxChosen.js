@@ -9,14 +9,19 @@ const chosenSlice = createSlice({
   initialState,
   reducers: {
     addChosen(state, action) {
-      state.chosen.push(action.payload);
-    },
-    deleteChosen(state, action) {
-      state.chosen = state.chosen.filter((car) => car.id !== action.payload);
+      const existingCar = state.chosen.find(
+        (car) => car.id === action.payload.id
+      );
+      if (existingCar) {
+        state.chosen = state.chosen.filter(
+          (car) => car.id !== action.payload.id
+        );
+      } else {
+        state.chosen.push(action.payload);
+      }
     },
   },
 });
 
 export const { addChosen, deleteChosen } = chosenSlice.actions;
-
 export default chosenSlice.reducer;

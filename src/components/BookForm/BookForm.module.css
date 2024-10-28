@@ -1,6 +1,5 @@
 .formContainer {
   max-width: 641px;
-  /* height: 588px; */
 
   border: 1px solid var(--grayLight);
   border-radius: 10px;
@@ -22,7 +21,6 @@
 
 .field {
   width: 527px;
-  height: 60px;
   padding: 18px 337px 18px 18px;
   border-radius: 12px;
   border-color: transparent;
@@ -30,6 +28,15 @@
 }
 .field.texarea {
   margin-bottom: 10px;
+  resize: none;
+}
+
+.field.texarea:active,
+.field.texarea:focus,
+.field:active,
+.field:focus {
+  border: 1px solid var(--hover);
+  outline: none;
 }
 
 .dateForm {
@@ -39,4 +46,15 @@
   border-radius: 12px;
   border-color: transparent;
   background: var(--inputs);
+}
+
+.dateForm:active,
+.dateForm:focus {
+  border: 1px solid var(--hover);
+  outline: none;
+}
+
+.error {
+  color: var(--hover);
+  /* background-color: red; */
 }

@@ -8,6 +8,11 @@
   font-weight: 500;
 }
 
+.link:focus,
+.link:hover {
+  background-color: var(--hover);
+}
+
 .link.btn {
   width: 166px;
 }
@@ -21,4 +26,9 @@
 
   display: block;
   margin: 8px auto;
+}
+
+.link.viewMore:focus,
+.link.viewMore:hover {
+  border-color: var(--hover);
 }

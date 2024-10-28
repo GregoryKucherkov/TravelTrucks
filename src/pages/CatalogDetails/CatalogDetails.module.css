@@ -77,3 +77,8 @@
 .outlets {
   display: flex;
 }
+
+.goBack {
+  display: block;
+  margin-bottom: 20px;
+}

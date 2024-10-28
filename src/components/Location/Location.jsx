@@ -1,15 +1,16 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import css from "./Location.module.css";
 import { filtLocation } from "../../redux/filters/reduxFilters";
 import sprite from "../../assets/sprite.svg";
+import { selectLocation } from "../../redux/filters/filterSelectors";
 
 const Location = () => {
   const dispatch = useDispatch();
+  const locationHolder = useSelector(selectLocation);
 
   const handleSearch = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const location = form.elements.location.value;
     dispatch(filtLocation(location));
@@ -29,7 +30,7 @@ const Location = () => {
         </svg>
         <input
           className={css.input}
-          placeholder="Kyiv, Ukraine"
+          placeholder={locationHolder ? locationHolder : "Kyiv, Ukraine"}
           name="location"
         />
 

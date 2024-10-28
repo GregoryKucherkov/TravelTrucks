@@ -9,9 +9,9 @@ const Home = () => {
     <section className={css.h1Section}>
       <Container>
         <h1 className={css.h1Slogan}>Campers of your dreams</h1>
-        <p className={css.pText}>
+        <h2 className={css.pText}>
           You can find everything you want in our catalog
-        </p>
+        </h2>
         <Button
           onClick={() => {
             navigate("/catalog");

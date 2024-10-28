@@ -23,7 +23,7 @@ const AppBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className={navLinkClass} to="/catalog">
+              <NavLink to="/catalog" end className={navLinkClass}>
                 Catalog
               </NavLink>
             </li>

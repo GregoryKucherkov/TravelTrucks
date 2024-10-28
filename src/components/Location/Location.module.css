@@ -35,7 +35,7 @@
   width: 360px;
   height: 56px;
   background-color: var(--inputs);
-  padding: 18px 20px;
+  padding: 18px 20px 18px 45px;
   color: var(--main);
   border-radius: 12px;
   border: transparent;

@@ -5,6 +5,8 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import Button from "../Button/Button";
 import "react-datepicker/dist/react-datepicker.css";
+import * as Yup from "yup";
+import toast from "react-hot-toast";
 
 const initialValues = {
   name: "",
@@ -12,13 +14,33 @@ const initialValues = {
   bookingDate: null,
   comment: "",
 };
+
+const FormValidSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Email is required"),
+  bookingDate: Yup.date().nullable().required("Booking date is required"),
+});
+
 const BookForm = () => {
   const [startDate, setStartDate] = useState(null);
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
-    actions.resetForm();
-    setStartDate(null);
+    try {
+      //sending logic
+      console.log(values);
+      toast.success("Booking successful!");
+      actions.resetForm();
+    } catch (e) {
+      toast.error(`Error: ${e.message || "Something went wrong!"}`);
+    } finally {
+      setStartDate(null);
+    }
   };
 
   return (
@@ -30,7 +52,7 @@ const BookForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        // validationSchema={FormValidSchema}
+        validationSchema={FormValidSchema}
       >
         {({ setFieldValue }) => (
           <Form className={css.form}>
@@ -40,7 +62,7 @@ const BookForm = () => {
               name="name"
               placeholder="Name*"
             />
-            <ErrorMessage name="name" component="span" />
+            <ErrorMessage name="name" component="span" className={css.error} />
 
             <Field
               className={css.field}
@@ -48,7 +70,7 @@ const BookForm = () => {
               name="email"
               placeholder="Email*"
             />
-            <ErrorMessage name="email" component="span" />
+            <ErrorMessage name="email" component="span" className={css.error} />
 
             <Field name="bookingDate">
               {({ field }) => (
@@ -65,11 +87,15 @@ const BookForm = () => {
                 />
               )}
             </Field>
-            <ErrorMessage name="bookingDate" component="span" />
+            <ErrorMessage
+              name="bookingDate"
+              component="span"
+              className={css.error}
+            />
 
             <Field
               as="textarea"
-              cols="20"
+              rows="5"
               className={`${css.field} ${css.texarea}`}
               name="comment"
               placeholder="Comment"

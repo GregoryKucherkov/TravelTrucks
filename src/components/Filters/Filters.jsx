@@ -12,13 +12,10 @@ const Filters = () => {
   const dispatch = useDispatch();
   const equipment = useSelector(selectEquipment);
   const selType = useSelector(selectType);
-  console.log("equipment", equipment);
 
   const toggle = (feature) => {
     dispatch(toggleFilter(feature));
   };
-
-  // const isSelected = (feature) => equipment[feature];
 
   const toggleType = (type) => {
     dispatch(toggleForm(type));

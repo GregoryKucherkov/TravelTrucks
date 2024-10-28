@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   equipment: {
-    AC: true,
+    AC: false,
     bathroom: false,
     kitchen: false,
     TV: false,
@@ -13,7 +13,7 @@ const initialState = {
     water: false,
   },
   form: "",
-  location: [],
+  location: "",
 };
 
 const filterSlice = createSlice({
@@ -23,28 +23,19 @@ const filterSlice = createSlice({
     toggleFilter(state, action) {
       const feature = action.payload;
       state.equipment[feature] = !state.equipment[feature];
-      // if (state.equipment.includes(action.payload)) {
-      //   state.equipment = state.equipment.filter(
-      //     (feature) => feature !== action.payload
-      //   );
-      // } else {
-      //   state.equipment.push(action.payload);
-      // }
     },
     toggleForm(state, action) {
-      if (state.form.includes(action.payload)) {
-        state.form = state.form.filter((type) => type !== action.payload);
+      if (state.form === action.payload) {
+        state.form = "";
       } else {
         state.form = action.payload;
       }
     },
     filtLocation(state, action) {
-      if (state.location.includes(action.payload)) {
-        state.location = state.location.filter(
-          (location) => location !== action.payload
-        );
+      if (state.location === action.payload) {
+        state.location = "";
       } else {
-        state.location.push(action.payload);
+        state.location = action.payload;
       }
     },
   },

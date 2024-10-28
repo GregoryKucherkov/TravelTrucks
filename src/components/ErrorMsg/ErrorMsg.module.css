@@ -1,0 +1,11 @@
+.errorMsg {
+  font-size: 26px;
+  font-weight: 400;
+  border: 2px solid red;
+  border-radius: 12px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 20px;
+  padding: 10px;
+  font-weight: bold;
+}

@@ -47,10 +47,6 @@
   padding: 0 12px;
 }
 
-.likeBtn:hover {
-  fill: var(--btn);
-}
-
-.svgBtn:active {
+.likeBtn.checked {
   fill: var(--btn);
 }
