@@ -84,7 +84,7 @@ const Filters = () => {
             <button
               type="button"
               className={clsx(css.filterBtn, {
-                [css.checked]: equipment.tv,
+                [css.checked]: equipment.TV,
               })}
               onClick={() => {
                 toggle("TV");

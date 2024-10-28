@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers";
 
@@ -26,9 +27,17 @@ export const fetchFiltered = createAsyncThunk(
       };
 
       const response = await axios("/", { params });
+      if (response.data.items.length === 0) {
+        // Show toast notification if the list is empty
+        toast.error("No more cars in the base. Try to set up new search.");
+      }
       return response.data.items;
     } catch (e) {
-      return thunkApi.rejectWithValue(e.message);
+      if (e.response && e.response.data === "Not found") {
+        toast.error("The car wasnt found! Try other filters");
+        return thunkApi.rejectWithValue("Not found car"); // Reject with a specific message
+      }
+      return thunkApi.rejectWithValue(e.message); // General error handling
     }
   }
 );

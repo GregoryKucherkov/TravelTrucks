@@ -102,8 +102,8 @@ const CatalogDetails = () => {
             <div className={css.outlets}>
               <Suspense fallback={<Loader />}>
                 <Outlet />
-                <BookForm />
               </Suspense>
+              <BookForm />
             </div>
           </>
         )}

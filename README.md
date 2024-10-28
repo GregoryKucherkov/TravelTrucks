@@ -1,19 +1,33 @@
 # Travel Trucks
 
-Web application to find car for camping
+A web application to find and reserve cars for camping adventures.
 
 ## Stack
 
-Frontend: React, HTML, CSS, JavaScript
-Other: Axios for API requests, Formik, react-hot-toast, React Datepicker, react-content-loader.
+- **Frontend**: React, HTML, CSS, JavaScript
+- **Libraries/Tools**:
+  - Axios (API requests)
+  - Formik (form handling)
+  - react-hot-toast (notifications)
+  - React Datepicker (date selection)
+  - react-content-loader (skeleton loading)
 
 ## Features
 
-Need a camp car? Check out Trave trucks!
-You have all avaliable cars right away.
-Browse Camaping car: Search and filter available cars based on type, features and location.
-Detail: take a closer look to the car you interested in with details and photos. Read detailed characteristics and reviews.
-Reservations: Choose a date and make reservations.
+**Looking for a camping car? Travel Trucks has you covered!**
+
+- **Browse Camping Cars**: Explore a wide selection of available vehicles, filtering by type, features, and location to find the perfect match for your trip.
+- **Detailed Car Profiles**: Get a closer look at each car with in-depth details, images, and user reviews to ensure it meets your needs.
+- **Easy Reservations**: Select your dates and book the vehicle directly through the app for a hassle-free experience.
+
+##Getting started
+
+1. **Clone the repository**:
+
+   git clone https://github.com/GregoryKucherkov/TravelTrucks
+   cd TravelTrucks
+   npm install
+   npm start
 
 ## License
 

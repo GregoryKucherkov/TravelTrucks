@@ -12,7 +12,7 @@ const Location = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const form = e.target;
-    const location = form.elements.location.value;
+    const location = form.elements.location.value.trim();
     dispatch(filtLocation(location));
 
     form.reset();
