@@ -7,6 +7,7 @@ import Filters from "../../components/Filters/Filters";
 import Button from "../../components/Button/Button";
 import { clearCars, incrementPage } from "../../redux/cars/carsSlice";
 import {
+  selectCars,
   selectCurrentPage,
   selectError,
   selectLoading,
@@ -16,6 +17,8 @@ import { Container } from "../../components/Container/Container";
 import css from "./Catalog.module.css";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMsg/ErrorMsg";
+import { useLocation, useNavigate } from "react-router-dom";
+import { selectChosen } from "../../redux/chosen/choseSelectors";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -23,6 +26,11 @@ const Catalog = () => {
   const currentFilters = useSelector(selectFilters);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const cars = useSelector(selectCars);
+  const location = useLocation();
+  const selectedCars = useSelector(selectChosen);
+  const isSelectedPage = location.pathname === "/catalog/favorites";
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchFiltered({ page: 1 }));
@@ -35,8 +43,13 @@ const Catalog = () => {
 
   const handleFilterRequest = () => {
     dispatch(clearCars());
+    if (isSelectedPage) {
+      navigate("/catalog");
+    }
     dispatch(fetchFiltered({ filters: currentFilters, page: 1 }));
   };
+
+  const carsToRender = isSelectedPage ? selectedCars : cars;
 
   return (
     <Container className={css.columns}>
@@ -46,10 +59,12 @@ const Catalog = () => {
         <Button text="Search" onClick={handleFilterRequest} />
       </section>
       <section>
-        <CarsList />
+        <CarsList cars={carsToRender} />
         {loading && <Loader />}
         {error && <ErrorMessage />}
-        <Button text="Load More" addClass="viewMore" onClick={handlePage} />
+        {!isSelectedPage && (
+          <Button text="Load More" addClass="viewMore" onClick={handlePage} />
+        )}
       </section>
     </Container>
   );

@@ -5,6 +5,7 @@ import Layout from "./Layout/Layout";
 import { Toaster } from "react-hot-toast";
 import { lazy, Suspense } from "react";
 import Loader from "./Loader/Loader";
+// import Selected from "./Selected/Selected";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Catalog = lazy(() => import("../pages/Catalog/Catalog"));
@@ -21,7 +22,9 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog" element={<Catalog />}>
+            <Route path="favorites" element={<Catalog />} />
+          </Route>
           <Route path="/catalog/:id" element={<CatalogDetails />}>
             <Route path="features" element={<Features />} />
             <Route path="reviews" element={<Reviews />} />

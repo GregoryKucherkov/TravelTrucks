@@ -3,9 +3,12 @@ import css from "./AppBar.module.css";
 import { Container } from "../Container/Container";
 import sprite from "../../assets/sprite.svg";
 import clsx from "clsx";
+import { selectChosen } from "../../redux/chosen/choseSelectors";
+import { useSelector } from "react-redux";
 
 const AppBar = () => {
   const navLinkClass = ({ isActive }) => clsx(css.link, isActive && css.active);
+  const selected = useSelector(selectChosen);
 
   return (
     <header className={css.header}>
@@ -27,6 +30,13 @@ const AppBar = () => {
                 Catalog
               </NavLink>
             </li>
+            {selected.length > 0 && (
+              <li>
+                <NavLink to="/catalog/favorites" end className={navLinkClass}>
+                  Favorites
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </Container>

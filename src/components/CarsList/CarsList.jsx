@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+// import { selectCars } from "../../redux/cars/carsSelectors";
 import css from "./CarsList.module.css";
-import { selectCars } from "../../redux/cars/carsSelectors";
 import Car from "../Car/Car";
 
-const CarsList = () => {
-  const cars = useSelector(selectCars);
+const CarsList = ({ cars }) => {
+  // const cars = useSelector(selectCars);
 
   return (
     <ul className={css.carList}>
