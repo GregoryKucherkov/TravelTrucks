@@ -1,5 +1,4 @@
 .header {
-  height: 72px;
   margin: 0;
 
   background-color: var(--inputs);
@@ -8,24 +7,59 @@
 
 .nav {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .nav {
+    flex-direction: row;
+  }
+}
+
 .logo {
   width: 136px;
   height: 16px;
   flex-shrink: 0;
+
+  margin-bottom: 12px;
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .logo {
+    margin-bottom: 0;
+  }
 }
 
 .headerMenu {
   display: flex;
-  gap: 32px;
-  margin-left: 450px;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+
   font-weight: 500;
+}
+
+/* Tablet  */
+@media only screen and (min-width: 768px) {
+  .headerMenu {
+    margin-left: 0px;
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .headerMenu {
+    margin-left: 450px;
+  }
 }
 
 .link {
   text-decoration: none;
-
   color: #2a363b;
 }
 

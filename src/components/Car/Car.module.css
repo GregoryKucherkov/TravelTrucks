@@ -1,5 +1,5 @@
 .thumbCont {
-  width: 292px;
+  /* max-width: 292px; */
   height: 320px;
   border-radius: 10px;
   overflow: hidden;
@@ -16,6 +16,7 @@
 }
 
 .info {
+  max-width: 425px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -23,6 +24,8 @@
 
 .h2Wraper {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
   color: var(--main);
   align-items: flex-start;
 }
@@ -36,7 +39,7 @@
 }
 
 .description {
-  max-width: 525px;
+  /* max-width: 300px; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,4 +52,34 @@
 
 .likeBtn.checked {
   fill: var(--btn);
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .h2Wraper {
+    align-items: flex-start;
+  }
+}
+
+/* ipad-pro  */
+@media only screen and (min-width: 1158px) {
+  .thumbCont {
+    max-width: 292px;
+  }
+  .info {
+    max-width: 525px;
+  }
+  .description {
+    max-width: 250px;
+  }
+}
+
+/* over 1200px */
+@media only screen and (min-width: 1258px) {
+  .h2Wraper {
+    flex-direction: row;
+  }
+  .description {
+    max-width: 100%;
+  }
 }

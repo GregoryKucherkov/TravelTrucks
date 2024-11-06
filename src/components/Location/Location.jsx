@@ -19,7 +19,7 @@ const Location = () => {
   };
 
   return (
-    <div>
+    <>
       <div className={css.location}>Location</div>
       <form onSubmit={handleSearch} className={css.form}>
         <svg
@@ -36,7 +36,7 @@ const Location = () => {
 
         <button type="submit" className={css.btn} />
       </form>
-    </div>
+    </>
   );
 };
 

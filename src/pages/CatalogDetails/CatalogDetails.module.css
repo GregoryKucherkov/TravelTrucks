@@ -19,13 +19,16 @@
 
 .imgUl {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 28px;
 }
 
 .thumb {
-  width: 292px;
+  /* width: 292px; */
+  width: 282px;
   height: 312px;
 
   border-radius: 10px;
@@ -76,9 +79,30 @@
 
 .outlets {
   display: flex;
+  flex-direction: column;
 }
 
 .goBack {
   display: block;
   margin-bottom: 20px;
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .imgUl {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .imgUl {
+    justify-content: space-between;
+  }
+  .outlets {
+    display: flex;
+    flex-direction: row;
+  }
 }

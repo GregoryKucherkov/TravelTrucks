@@ -1,246 +1,229 @@
-import { useDispatch, useSelector } from "react-redux";
 import css from "./Filters.module.css";
+import sprite from "../../assets/sprite.svg";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleFilter, toggleForm } from "../../redux/filters/reduxFilters";
 import {
   selectEquipment,
   selectType,
 } from "../../redux/filters/filterSelectors";
-import clsx from "clsx";
-import sprite from "../../assets/sprite.svg";
 
-const Filters = () => {
+const Filters_1 = () => {
   const dispatch = useDispatch();
   const equipment = useSelector(selectEquipment);
   const selType = useSelector(selectType);
 
-  const toggle = (feature) => {
-    dispatch(toggleFilter(feature));
+  const handleFeatureChange = (e) => {
+    const equip = e.target.value;
+    dispatch(toggleFilter(equip));
   };
 
-  const toggleType = (type) => {
+  const handleTypeChange = (e) => {
+    const type = e.target.value;
     dispatch(toggleForm(type));
   };
+  // const handleChange = (e) => {
+  //   const type = e.target.type;
+  //   if (type === "checkbox") {
+  //     dispatch(toggleFilter(e.target.value));
+  //   } else {
+  //     dispatch(toggleForm(e.target.value));
+  //   }
+  // };
 
-  const isType = (type) => selType.includes(type);
+  // let lastSelected = null;
+  const handleUnselect = (e) => {
+    const radio = e.target;
+    if (radio.type === "radio") {
+      // Check if the clicked radio is the same as the last selected
+      if (selType === radio.value) {
+        dispatch(toggleForm(radio.value));
+      }
+    }
+  };
 
   return (
     <>
-      <div className={css.filters}>Filters</div> <br />
-      <h3 className={css.filterTitle}>Vehicle equipment</h3>
-      <hr />
-      <div>
-        <ul className={css.options}>
-          <li className={css.item}>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, { [css.checked]: equipment.AC })}
-              //   className={clsx(css.filterBtn, { [css.checked]: isSelected("ac") })}
-              onClick={() => {
-                toggle("AC");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#ac`} />
-              </svg>
-              AC
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.bathroom,
-              })}
-              onClick={() => {
-                toggle("bathroom");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#bathroom`} />
-              </svg>
-              Bathroom
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.kitchen,
-              })}
-              onClick={() => {
-                toggle("kitchen");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#kitchen`} />
-              </svg>
-              Kitchen
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.TV,
-              })}
-              onClick={() => {
-                toggle("TV");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#tv`} />
-              </svg>
-              TV
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.radio,
-              })}
-              onClick={() => {
-                toggle("radio");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#radio`} />
-              </svg>
-              Radio
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.refrigerator,
-              })}
-              onClick={() => {
-                toggle("refrigerator");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#refrigerator`} />
-              </svg>
-              Refrigerator
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.microwave,
-              })}
-              onClick={() => {
-                toggle("microwave");
-              }}
-            >
-              <svg style={{ fill: "none", stroke: "black" }}>
-                <use href={`${sprite}#microwave`} />
-              </svg>
-              Microwave
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.gas,
-              })}
-              onClick={() => {
-                toggle("gas");
-              }}
-            >
-              <svg style={{ fill: "none", stroke: "black" }}>
-                <use href={`${sprite}#gas`} />
-              </svg>
-              Gas
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: equipment.water,
-              })}
-              onClick={() => {
-                toggle("water");
-              }}
-            >
-              <svg style={{ fill: "none", stroke: "black" }}>
-                <use href={`${sprite}#water`} />
-              </svg>
-              Water
-            </button>
-          </li>
-        </ul>
-      </div>
-      <h3 className={css.filterTitle}>Vehicle type</h3>
-      <hr />
-      <div>
-        <ul className={css.type}>
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: isType("panelTruck"),
-              })}
-              onClick={() => {
-                toggleType("panelTruck");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#van`} />
-              </svg>
-              Van
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: isType("alcove"),
-              })}
-              onClick={() => {
-                toggleType("alcove");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#alcove`} />
-              </svg>
-              Alcove
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              className={clsx(css.filterBtn, {
-                [css.checked]: isType("fullyIntegrated"),
-              })}
-              onClick={() => {
-                toggleType("fullyIntegrated");
-              }}
-            >
-              <svg>
-                <use href={`${sprite}#fullyIntegrated`} />
-              </svg>
-              Fully Integrated
-            </button>
-          </li>
-        </ul>
-      </div>
+      <div className={css.filters}>Filters</div>
+      <form className={css.form}>
+        <fieldset className={css.fieldset}>
+          <hr />
+          <legend className={css.filterTitle}>Vehicle equipment</legend>
+          <input
+            type="checkbox"
+            id="ac"
+            name="equipment"
+            value="AC"
+            checked={equipment.AC}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="ac" className={css.label}>
+            <svg>
+              <use href={`${sprite}#ac`} />
+            </svg>
+            <span>AC</span>
+          </label>
+          <input
+            type="checkbox"
+            id="bathroom"
+            name="equipment"
+            value="bathroom"
+            checked={equipment.bathroom}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="bathroom" className={css.label}>
+            <svg>
+              <use href={`${sprite}#bathroom`} />
+            </svg>
+            <span>Bathroom</span>
+          </label>
+          <input
+            type="checkbox"
+            id="kitchen"
+            name="equipment"
+            value="kitchen"
+            checked={equipment.kitchen}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="kitchen" className={css.label}>
+            <svg>
+              <use href={`${sprite}#kitchen`} />
+            </svg>
+            <span>Kitchen</span>
+          </label>
+          <input
+            type="checkbox"
+            id="tv"
+            name="equipment"
+            value="TV"
+            checked={equipment.TV}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="tv" className={css.label}>
+            <svg>
+              <use href={`${sprite}#tv`} />
+            </svg>
+            <span>TV</span>
+          </label>
+          <input
+            type="checkbox"
+            id="radio"
+            name="equipment"
+            value="radio"
+            checked={equipment.radio}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="radio" className={css.label}>
+            <svg>
+              <use href={`${sprite}#radio`} />
+            </svg>
+            <span>Radio</span>
+          </label>
+          <input
+            type="checkbox"
+            id="refrigerator"
+            name="equipment"
+            value="refrigerator"
+            checked={equipment.refrigerator}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="refrigerator" className={css.label}>
+            <svg>
+              <use href={`${sprite}#refrigerator`} />
+            </svg>
+            <span>Refrigerator</span>
+          </label>
+          <input
+            type="checkbox"
+            id="microwave"
+            name="equipment"
+            value="microwave"
+            checked={equipment.microwave}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="microwave" className={css.label}>
+            <svg>
+              <use href={`${sprite}#microwave`} />
+            </svg>
+            <span>Microwave</span>
+          </label>
+          <input
+            type="checkbox"
+            id="gas"
+            name="equipment"
+            value="gas"
+            checked={equipment.gas}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="gas" className={css.label}>
+            <svg>
+              <use href={`${sprite}#gas`} />
+            </svg>
+            <span>Gas</span>
+          </label>
+          <input
+            type="checkbox"
+            id="water"
+            name="equipment"
+            value="water"
+            checked={equipment.water}
+            onChange={handleFeatureChange}
+          />
+          <label htmlFor="water" className={css.label}>
+            <svg>
+              <use href={`${sprite}#water`} />
+            </svg>
+            <span>Water</span>
+          </label>
+        </fieldset>
+        <fieldset className={css.fieldset} onClick={handleUnselect}>
+          <hr />
+          <legend className={css.filterTitle}>Vehicle type</legend>
+          <input
+            type="radio"
+            id="panelTruck"
+            name="form"
+            value="panelTruck"
+            checked={selType === "panelTruck"}
+            onChange={handleTypeChange}
+          />
+          <label htmlFor="panelTruck" className={css.label}>
+            <svg>
+              <use href={`${sprite}#van`} />
+            </svg>
+            <span>Van</span>
+          </label>
+          <input
+            type="radio"
+            id="alcove"
+            name="form"
+            value="alcove"
+            checked={selType === "alcove"}
+            onChange={handleTypeChange}
+          />
+          <label htmlFor="alcove" className={css.label}>
+            <svg>
+              <use href={`${sprite}#alcove`} />
+            </svg>
+            <span>Alcove</span>
+          </label>
+          <input
+            type="radio"
+            id="fullyIntegrated"
+            name="form"
+            value="fullyIntegrated"
+            checked={selType === "fullyIntegrated"}
+            onChange={handleTypeChange}
+          />
+          <label htmlFor="fullyIntegrated" className={css.label}>
+            <svg>
+              <use href={`${sprite}#fullyIntegrated`} />
+            </svg>
+            <span>Fully Integrated</span>
+          </label>
+        </fieldset>
+      </form>
     </>
   );
 };
 
-export default Filters;
+export default Filters_1;

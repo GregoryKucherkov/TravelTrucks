@@ -17,7 +17,7 @@ const Reviews = () => {
                 <h2 className={css.avatar}>{review.reviewer_name[0]}</h2>
                 <div className={css.ratingWraper}>
                   <p>{review.reviewer_name}</p>
-                  <Rating rating={details.rating} />
+                  <Rating rating={review.reviewer_rating} />
                 </div>
               </div>
               <p>{review.comment}</p>

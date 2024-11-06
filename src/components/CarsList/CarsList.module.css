@@ -1,9 +1,28 @@
 .cardLi {
   border: 1px solid var(--grayLight);
   border-radius: 20px;
-  padding: 24px 24px;
+  padding: 10px 10px;
 
   display: flex;
+  flex-direction: column;
   gap: 24px;
   margin-bottom: 32px;
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  ul {
+    text-align: center;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .cardLi {
+    flex-direction: row;
+    padding: 24px 24px;
+  }
+  ul {
+    text-align: left;
+  }
 }

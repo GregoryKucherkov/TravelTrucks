@@ -9,9 +9,7 @@ const Rating = ({ rating }) => {
       {stars.map((value) => (
         <svg
           key={value}
-          className={`${css.ratingStar} ${
-            value <= Math.round(rating) ? css.isActive : ""
-          }`}
+          className={`${css.ratingStar} ${value <= rating ? css.isActive : ""}`}
         >
           <use href={`${sprite}#star`} />
         </svg>

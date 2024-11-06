@@ -1,6 +1,6 @@
 .link {
-  width: 173px;
-  padding: 16px;
+  /* width: 173px; */
+  /* padding: 16px; */
   border-radius: 200px;
   background-color: var(--btn);
   color: var(--white);
@@ -31,4 +31,12 @@
 .link.viewMore:focus,
 .link.viewMore:hover {
   border-color: var(--hover);
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .link {
+    width: 173px;
+    padding: 16px;
+  }
 }

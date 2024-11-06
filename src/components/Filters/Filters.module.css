@@ -1,57 +1,125 @@
-svg {
-  width: 32px;
-  height: 32px;
-  /* fill: var(--main); */
-}
-
-.options {
-  display: flex;
-
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40px 0;
-  gap: 8px;
-}
-
 .filters {
   color: var(--text);
   font-weight: 500;
+  padding-bottom: 32px;
 }
 
 .filterTitle {
   font-size: 20px;
   font-weight: 600;
   line-height: 120%;
-  padding-bottom: 24px;
   color: var(--main);
 }
 
-.filterBtn {
-  max-width: 112px;
-  height: 96px;
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  color: var(--main);
+  justify-content: center; /* for centring mobile */
+  line-height: 80%;
+}
+
+.form hr {
+  height: 1px;
+  background-color: var(--grayLight);
+  border: none; /* Remove default border */
+  width: 100%;
+  margin: 12px 0;
+}
+
+.fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: space-between;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+  cursor: pointer;
+
+  /* in case of needed element on page */
+  /* position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1; */
+}
+
+.label {
+  max-width: 58px;
+  height: 48px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   background: white;
   border-radius: 12px;
   border: 1px solid var(--grayLight);
   cursor: pointer;
-  padding: 16px 40px;
-  font-size: 16px;
-  font-weight: 500;
+  padding: 8px 20px;
+  font-size: 8px;
+  font-weight: 400;
+
+  text-align: center;
 }
 
-.filterBtn.checked {
+input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label {
   border: 1px solid var(--btn);
 }
 
-.type {
-  display: flex;
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
 
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40px 0;
+svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .form {
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+  .form hr {
+    margin: 24px 0;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  .form {
+    gap: 32px;
+    line-height: 150%;
+    padding-bottom: 40px;
+  }
+  .form hr {
+    margin: 24px 0;
+  }
+
+  .label {
+    max-width: 112px;
+    height: 96px;
+    gap: 8px;
+
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 40px;
+  }
 }

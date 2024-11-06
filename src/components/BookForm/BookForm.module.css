@@ -13,6 +13,7 @@
 }
 
 .form {
+  /* width: 527px; */
   display: flex;
   gap: 14px;
   flex-direction: column;
@@ -20,8 +21,8 @@
 }
 
 .field {
-  width: 527px;
-  padding: 18px 337px 18px 18px;
+  width: 280px;
+  padding: 18px 18px;
   border-radius: 12px;
   border-color: transparent;
   background: var(--inputs);
@@ -40,9 +41,9 @@
 }
 
 .dateForm {
-  width: 527px;
+  width: 280px;
   height: 60px;
-  padding: 18px 337px 18px 18px;
+  padding: 18px 18px;
   border-radius: 12px;
   border-color: transparent;
   background: var(--inputs);
@@ -56,5 +57,16 @@
 
 .error {
   color: var(--hover);
-  /* background-color: red; */
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .field {
+    width: 527px;
+    padding: 18px 337px 18px 18px;
+  }
+  .dateForm {
+    width: 527px;
+    padding: 18px 337px 18px 18px;
+  }
 }

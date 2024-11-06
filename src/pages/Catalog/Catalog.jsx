@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchFiltered } from "../../redux/cars/CarsOps";
 import CarsList from "../../components/CarsList/CarsList";
 import Location from "../../components/Location/Location";
-import Filters from "../../components/Filters/Filters";
 import Button from "../../components/Button/Button";
 import { clearCars, incrementPage } from "../../redux/cars/carsSlice";
 import {
@@ -19,6 +18,7 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMsg/ErrorMsg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { selectChosen } from "../../redux/chosen/choseSelectors";
+import Filters from "../../components/Filters/Filters";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -56,7 +56,12 @@ const Catalog = () => {
       <section className={css.filterSection}>
         <Location />
         <Filters />
-        <Button text="Search" onClick={handleFilterRequest} />
+        <Button
+          text="Search"
+          addClass="btn"
+          onClick={handleFilterRequest}
+          type="submit"
+        />
       </section>
       <section>
         <CarsList cars={carsToRender} />

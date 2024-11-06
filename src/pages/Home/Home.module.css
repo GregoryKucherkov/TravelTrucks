@@ -1,11 +1,12 @@
 .h1Section {
-  max-width: 1440px;
-  padding: 236px 0;
+  min-width: 320px;
+  /* max-width: 428px; */
+  padding: 140px 0;
   background-color: var(--gray);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 90%;
+
   margin: 0 auto;
 
   background-image: linear-gradient(
@@ -16,15 +17,65 @@
     url("/imgs/hero-img-1.jpg");
 }
 
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .h1Section {
+    /* max-width: 768px; */
+    padding: 276px 0;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .h1Section {
+    max-width: 1920px;
+    background-position: 0 90%;
+  }
+}
+
 .h1Slogan {
+  max-width: 425px;
   color: var(--inputs);
   margin-bottom: 16px;
+
+  font-size: 24px;
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .h1Slogan {
+    font-size: 36px;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .h1Slogan {
+    font-size: 48px;
+  }
 }
 
 .pText {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 133%;
   color: var(--inputs);
-  margin-bottom: 40px;
+  margin-bottom: 80px;
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .pText {
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+}
+
+/* Desktop  */
+@media only screen and (min-width: 1158px) {
+  .pText {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
 }
